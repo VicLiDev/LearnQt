@@ -1,0 +1,51 @@
+# Build artifacts
+build/
+*.o
+*.moc
+moc_*.cpp
+ui_*.h
+qrc_*.cpp
+*.app
+*.exe
+
+# CMake (generated Makefiles only, not top-level)
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+CTestTestfile.cmake
+build/*/Makefile
+!Makefile
+*.cmake !FindQWT.cmake
+
+# Qt Creator
+*.pro.user
+*.pro.user.*
+*.qbs.user
+*.qbs.user.*
+*.workspace
+*.creator.user*
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Database files (runtime)
+*.db
+*.sqlite
+*.sqlite3
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Misc
+*.autosave
+*.bak
