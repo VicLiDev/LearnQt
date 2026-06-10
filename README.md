@@ -9,6 +9,7 @@
 - **CMake**: `apt install cmake` (3.5+)
 - **PyQt5** (仅 16 号 demo): `pip3 install PyQt5 psutil`
 - **QWT** (13, 14 号 demo): 需要安装 QWT 库，通过 `-DQWT_ROOT=/path` 指定路径
+- **Qt MQTT** (17 号 demo): `apt install libqt5mqtt5-dev`
 
 ## Demo 列表
 
@@ -37,6 +38,7 @@
 | 14 | custom_plot_advanced | QCustomPlot + QWT + 事件系统 + 不规则窗口 | QWT |
 | 15 | sqlite_database | Qt SQL 模块、SQLite 封装、CRUD、多线程 | Qt5::Sql |
 | 16 | pyqt_system_monitor | PyQt5 系统监控仪表盘、无边框窗口、事件过滤器 | PyQt5 + psutil |
+| 17 | mqtt | Qt MQTT 综合学习：发布订阅、QoS、通配符、LWT、保留消息、TLS、RPC、批量发布、监控仪表盘 | Qt5::Mqtt |
 
 ## 快速开始
 
@@ -84,3 +86,4 @@ cd 01.hello_qt
 13. **13-14** → 第三方绘图库（需要安装 QWT）
 14. **15** → 数据库编程
 15. **16** → Python + PyQt5 实战
+16. **17** → MQTT 物联网通信

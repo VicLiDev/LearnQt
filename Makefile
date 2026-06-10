@@ -16,7 +16,8 @@ DEMOS := 01.hello_qt \
          13.qwt_plotting \
          14.custom_plot_advanced \
          15.sqlite_database \
-         16.pyqt_system_monitor
+         16.pyqt_system_monitor \
+         17.mqtt
 
 .PHONY: all build clean list help $(DEMOS)
 
@@ -57,6 +58,7 @@ help:
 	@echo "  13-14  QWT/QCustomPlot plotting (requires QWT)"
 	@echo "  15     SQLite database"
 	@echo "  16     PyQt5 system monitor (Python)"
+	@echo "  17     Qt MQTT 综合学习 (requires libqt5mqtt5-dev)"
 
 %:
 	@if [ -d "$@" ] && [ -f "$@/prjBuild.sh" ]; then \
