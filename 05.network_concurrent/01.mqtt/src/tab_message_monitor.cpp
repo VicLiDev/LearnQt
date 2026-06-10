@@ -171,6 +171,7 @@ void TabMessageMonitor::onMessageReceived(const QString &topic,
                                            const QDateTime &timestamp)
 {
     Q_UNUSED(retain);
+    Q_UNUSED(timestamp);
 
     // 更新接收计数
     m_totalReceived++;

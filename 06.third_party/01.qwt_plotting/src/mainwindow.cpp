@@ -5,6 +5,7 @@
 #include <QDebug>
 #include <QMessageBox>
 #include <QMap>
+#include <QRandomGenerator>
 #include <qdatetime.h>
 
 #include <qwt_plot_canvas.h>
@@ -112,10 +113,10 @@ protected:
         QDateTime time = toDateTime( double(pos.x()) );
         switch (rubberBand()) {    // 认为与选择的表示方式有关,比如使用交叉线或者使用横线,可以参见博客: https://blog.csdn.net/czyt1988/article/details/51555020
         case HLineRubberBand:
-            text.sprintf( "%.4f", pos.y() );    //此处笔者没有使用，没有修改，建议根据自己需求进行修改
+            text = QString::asprintf( "%.4f", pos.y() );    //此处笔者没有使用，没有修改，建议根据自己需求进行修改
             break;
         case VLineRubberBand:
-            text.sprintf( "%.4f", pos.x() );    //此处笔者没有使用，没有修改，建议根据自己需求进行修改
+            text = QString::asprintf( "%.4f", pos.x() );    //此处笔者没有使用，没有修改，建议根据自己需求进行修改
             break;
         default:
             //text.sprintf( "%.4f, %.4f", pos.x(), pos.y() );    //原代码
@@ -248,15 +249,15 @@ MainWindow::MainWindow(QWidget *parent) :
     QTime my_start_time(0,0,0,0);
     QTime my_end_time(0,0,1,10);
     int timeElapsed = my_start_time.msecsTo(my_end_time);
-    qDebug() << "时间差(时):" << timeElapsed << "ms" << endl;
+    qDebug() << "时间差(时):" << timeElapsed << "ms";
     QDate my_start_date(2018, 6, 10);
     QDate my_end_date(2018, 6, 11);
     int dateElapset = my_start_date.daysTo(my_end_date);
-    qDebug() << "时间差(天):" << dateElapset << "天" << endl;
+    qDebug() << "时间差(天):" << dateElapset << "天";
     QDateTime my_start_datetime( my_start_date, my_start_time );
     QDateTime my_end_datetime( my_end_date, my_end_time );
     int datetimeElapset = my_start_datetime.secsTo( my_end_datetime );
-    qDebug() << "时间差(天.时):" << datetimeElapset << "s" << endl;
+    qDebug() << "时间差(天.时):" << datetimeElapset << "s";
 
 
 
@@ -470,7 +471,7 @@ MainWindow::MainWindow(QWidget *parent) :
     {
         QVector<double> values;
         for ( int j = 0; j < numBars; j++ )
-            values += ( 2 + qrand() % 8 );
+            values += ( 2 + QRandomGenerator::global()->bounded(8) );
 
         series += values;
     }
@@ -581,7 +582,7 @@ MainWindow::MainWindow(QWidget *parent) :
     /***************************************************** 文件操作 **************************************************/
     std::ifstream inFile("test.txt", std::ios::in );
     if(!inFile.is_open()){
-        qDebug() << "File read error" << endl;
+        qDebug() << "File read error";
         return;
     }
     double tmp;
@@ -596,7 +597,7 @@ MainWindow::MainWindow(QWidget *parent) :
         }
         count++;
     }
-    qDebug() << "File rows is" << count << endl;
+    qDebug() << "File rows is" << count;
     inFile.seekg(0); //游标复位
     inFile >> tmp;  //显示下一个值,次数关于游标设置
     //qDebug() << "next " << tmp << endl;
@@ -709,7 +710,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::timerEvent( QTimerEvent *event )
 {
-    qDebug() << "hello~ I'm timer" << endl;
+    qDebug() << "hello~ I'm timer";
 }
 
 void MainWindow::on_comboBox_activated(int index)
@@ -726,16 +727,16 @@ void MainWindow::on_comboBox_activated(int index)
 void MainWindow::on_pushButton_clicked()
 {
     ui->listWidget->selectAll();
-    qDebug() << "Selected All" << endl;
+    qDebug() << "Selected All";
 }
 
 void MainWindow::on_pushButton_2_clicked()
 {
     QList<QListWidgetItem*> selectedLW = ui->listWidget->selectedItems();
-    qDebug() << "Selected num " << selectedLW.size() << endl;
+    qDebug() << "Selected num " << selectedLW.size();
 }
 
 void MainWindow::timer2solt()
 {
-    qDebug() << "hello~ I'm timer 2" << endl;
+    qDebug() << "hello~ I'm timer 2";
 }

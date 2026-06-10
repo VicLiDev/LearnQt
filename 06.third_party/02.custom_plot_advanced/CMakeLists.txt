@@ -6,13 +6,19 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
 
-find_package(Qt5 REQUIRED COMPONENTS Widgets Xml PrintSupport)
+# Use system Qt5.15 (QWT library is built against Qt5.15)
+set(Qt5_DIR "/usr/lib/x86_64-linux-gnu/cmake/Qt5" CACHE PATH "" FORCE)
+
+find_package(Qt5 REQUIRED COMPONENTS Widgets Xml PrintSupport Svg OpenGL)
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/../cmake")
 find_package(QWT)
 
 if(NOT QWT_FOUND)
-    message(FATAL_ERROR "QWT not found. Set -DQWT_ROOT=/path/to/qwt or install QWT.")
+    message(FATAL_ERROR
+        "QWT library not found!\n"
+        "  Install with: sudo apt install libqwt-qt5-dev"
+    )
 endif()
 
 set(SOURCES
@@ -39,4 +45,4 @@ set(RESOURCES
 
 add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS} ${FORMS} ${RESOURCES})
 target_include_directories(${PROJECT_NAME} PRIVATE src ${QWT_INCLUDE_DIRS})
-target_link_libraries(${PROJECT_NAME} PRIVATE Qt5::Widgets Qt5::Xml Qt5::PrintSupport ${QWT_LIBRARIES})
+target_link_libraries(${PROJECT_NAME} PRIVATE Qt5::Widgets Qt5::Xml Qt5::PrintSupport Qt5::Svg Qt5::OpenGL ${QWT_LIBRARIES})

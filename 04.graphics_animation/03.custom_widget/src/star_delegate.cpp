@@ -126,6 +126,7 @@ void StarDelegate::updateEditorGeometry(QWidget *editor,
                                          const QStyleOptionViewItem &option,
                                          const QModelIndex &index) const
 {
+    Q_UNUSED(index);
     editor->setGeometry(option.rect);
 }
 
@@ -190,7 +191,6 @@ void StarDelegate::paintStars(QPainter *painter, const QStyleOptionViewItem &opt
     if (!ok) starCount = 0;
     starCount = qBound(0, starCount, 5);
 
-    int margin = 8;
     int starSize = 16;
     int spacing = 4;
     int totalWidth = starSize * 5 + spacing * 4;

@@ -377,6 +377,7 @@ void TabBatchPublish::onPublishFailed(quint32 msgId, const QString &topic,
 {
     Q_UNUSED(msgId);
     Q_UNUSED(topic);
+    Q_UNUSED(error);
 
     // 发布失败，更新计数
     m_failCount++;

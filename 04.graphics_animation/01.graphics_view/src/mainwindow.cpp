@@ -973,15 +973,6 @@ void CustomItemTab::onAutoConnect()
         FlowNodeItem *from = m_nodes[i];
         FlowNodeItem *to = m_nodes[i + 1];
 
-        // 避免重复连接
-        bool alreadyConnected = false;
-        foreach (QGraphicsItem *item, m_scene->items()) {
-            if (item->type() == ConnectionLineItem::Type) {
-                ConnectionLineItem *line = static_cast<ConnectionLineItem *>(item);
-                // 简化检查
-            }
-        }
-
         ConnectionLineItem *line = new ConnectionLineItem(from, to);
         m_scene->addItem(line);
         m_infoDisplay->append(QString("  %1 -> %2").arg(from->m_title, to->m_title));

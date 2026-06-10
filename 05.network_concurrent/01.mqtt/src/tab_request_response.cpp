@@ -174,10 +174,10 @@ void TabRequestResponse::onMessageReceived(const QString &topic,
                                            quint8 qos, bool retain,
                                            const QDateTime &timestamp)
 {
+    Q_UNUSED(topic);
     Q_UNUSED(qos);
     Q_UNUSED(retain);
     Q_UNUSED(timestamp);
-
     // 尝试解析响应中的关联 ID
     QJsonDocument doc = QJsonDocument::fromJson(payload);
     if (!doc.isObject()) {
