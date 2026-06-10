@@ -5,7 +5,7 @@
 ## 环境要求
 
 - **编译器**: GCC / Clang (C++11)
-- **Qt5**: `apt install qtbase5-dev qtbase5-dev-tools libqt5xml5-dev libqt5printsupport5-dev`
+- **Qt5**: `apt install qtbase5-dev qtbase5-dev-tools qtbase5-private-dev libqt5xml5-dev libqt5printsupport5-dev libqt5networkauth5-dev`
 - **CMake**: `apt install cmake` (3.5+)
 - **PyQt5** (仅 16 号 demo): `pip3 install PyQt5 psutil`
 - **QWT** (13, 14 号 demo): 需要安装 QWT 库，通过 `-DQWT_ROOT=/path` 指定路径
@@ -39,6 +39,18 @@
 | 15 | sqlite_database | Qt SQL 模块、SQLite 封装、CRUD、多线程 | Qt5::Sql |
 | 16 | pyqt_system_monitor | PyQt5 系统监控仪表盘、无边框窗口、事件过滤器 | PyQt5 + psutil |
 | 17 | mqtt | Qt MQTT 综合学习：发布订阅、QoS、通配符、LWT、保留消息、TLS、RPC、批量发布、监控仪表盘 | Qt5::Mqtt |
+
+### Qt 进阶教程 (18-24)
+
+| 编号 | 目录 | 说明 |
+|------|------|------|
+| 18 | json_xml | JSON/XML 数据解析：QJsonDocument、QJsonParseError、QDomDocument、QXmlStreamReader |
+| 19 | network | 网络编程：QTcpSocket/QTcpServer、QUdpSocket、QNetworkAccessManager HTTP 请求 |
+| 20 | graphics_view | Graphics View 图形视图框架：QGraphicsScene、QGraphicsItem、坐标系统、碰撞检测 |
+| 21 | animation | Qt 动画框架：QPropertyAnimation、QParallelAnimationGroup、QSequentialAnimationGroup、 easing |
+| 22 | concurrent | Qt 并发编程：QtConcurrent::map、QFuture、QFutureWatcher、线程池 |
+| 23 | ipc | 进程间通信：QProcess、QLocalSocket/QLocalServer、QSharedMemory |
+| 24 | custom_widget | 自定义控件：绘制控件（圆形按钮/仪表盘）、QStyledItemDelegate（进度条/星评/颜色块）、组合控件 |
 
 ## 快速开始
 
@@ -87,3 +99,10 @@ cd 01.hello_qt
 14. **15** → 数据库编程
 15. **16** → Python + PyQt5 实战
 16. **17** → MQTT 物联网通信
+17. **18** → JSON/XML 数据解析
+18. **19** → 网络编程（TCP/UDP/HTTP）
+19. **20** → Graphics View 图形视图框架
+20. **21** → Qt 动画框架
+21. **22** → Qt 并发编程
+22. **23** → 进程间通信
+23. **24** → 自定义控件（绘制/委托/组合控件）

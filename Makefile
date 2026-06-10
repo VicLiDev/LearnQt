@@ -17,7 +17,14 @@ DEMOS := 01.hello_qt \
          14.custom_plot_advanced \
          15.sqlite_database \
          16.pyqt_system_monitor \
-         17.mqtt
+         17.mqtt \
+         18.json_xml \
+         19.network \
+         20.graphics_view \
+         21.animation \
+         22.concurrent \
+         23.ipc \
+         24.custom_widget
 
 .PHONY: all build clean list help $(DEMOS)
 
@@ -59,6 +66,13 @@ help:
 	@echo "  15     SQLite database"
 	@echo "  16     PyQt5 system monitor (Python)"
 	@echo "  17     Qt MQTT 综合学习 (requires libqt5mqtt5-dev)"
+	@echo "  18     JSON/XML 数据解析"
+	@echo "  19     网络编程 (QTcpSocket/QUdpSocket/QNetworkAccessManager)"
+	@echo "  20     Graphics View 图形视图框架"
+	@echo "  21     Qt 动画框架 (QPropertyAnimation/动画组)"
+	@echo "  22     Qt 并发编程 (QtConcurrent/QFuture/线程池)"
+	@echo "  23     进程间通信 (QProcess/QLocalSocket/共享内存)"
+	@echo "  24     自定义控件 (绘制/委托/组合控件)"
 
 %:
 	@if [ -d "$@" ] && [ -f "$@/prjBuild.sh" ]; then \
